@@ -21,7 +21,7 @@ function App() {
 
   const handleNewItem = (itemName, itemDueDate) => {
     const newTodoItems = [
-      ...initialTodoItems,
+      ...todoItems,
       { name: itemName, dueDate: itemDueDate },
     ];
     setTodoItems(newTodoItems);
@@ -38,7 +38,7 @@ function App() {
     <center className="todo-container">
       <AppName />
       <AddTodo onNewItem={handleNewItem} />
-      {(todoItems.length = 0 ? <WelcomeMessage /> : "")}
+      {todoItems.length === 0 && <WelcomeMessage />}
       <TodoItems
         todoItems={todoItems}
         onDeleteClick={handleDeleteItem}
